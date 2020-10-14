@@ -22,11 +22,13 @@ def email_variations_helper(username, dot_count, mail_server, res):
         res.append(''.join(new_username)+'@'+mail_server)
 
 
-def email_variations(email):
+def email_variations(email=None):
     '''
     Generates all combinations of valid email variations that redirect to email.
     '''
-    username, mail_server = email.split('@')
+    main_email = input('What email do you want all variations for? ') if not email else email
+
+    username, mail_server = main_email.split('@')
     username = normalize_username(username)
 
     max_dots = len(username) - 1
@@ -36,10 +38,3 @@ def email_variations(email):
         email_variations_helper(list(username), i, mail_server, res)
 
     return res
-
-def main():
-    main_email = input('What email do you want all variations for? ')
-    emails = email_variations(main_email)
-    print(emails)
-    
-main()

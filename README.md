@@ -29,4 +29,7 @@ python main.py
 ['h.irth@gmail.com',...,]
 ```
 
+Note, developers can invoke it in their source code by simply calling the function with an email.
+Might be useful if you are automating something with the email variations.
+
 Have fun!
